@@ -118,7 +118,7 @@ public class GetRequest02 {
                 assertThat().
                 statusCode(404);
 
-        Assert.assertTrue(response.asString().contains("Not Found"));
+        Assert.assertTrue(response.asString().contains("Not Found")); // asString ile toString i kontrol et
         Assert.assertFalse(response.toString().contains("API"));
 
 
