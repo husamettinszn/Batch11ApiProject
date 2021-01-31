@@ -37,5 +37,8 @@ public class GetRequest01 {
                 statusCode(200).
                 contentType(ContentType.JSON).
                 statusLine("HTTP/1.1 200 OK");
+        System.out.println(response.getStatusCode());
+        System.out.println(response.getTime());
+        System.out.println(response.getContentType());
     }
 }
