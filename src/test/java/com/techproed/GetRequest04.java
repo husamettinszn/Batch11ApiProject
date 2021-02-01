@@ -29,6 +29,7 @@ public class GetRequest04 {
                 accept("application/json").
                 when().
                 get(url);
+
         response.prettyPrint();
 
         response.
@@ -38,8 +39,6 @@ public class GetRequest04 {
                 body("data.id", Matchers.hasSize(24)).
                 body("data.employee_name", Matchers.hasItem("Ashton Cox")).
                 body("data.employee_age", Matchers.hasItems("21","61","23"));
-
-
     }
 
 
