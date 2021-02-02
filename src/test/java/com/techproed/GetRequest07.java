@@ -31,7 +31,7 @@ public class GetRequest07 extends TestBaseHerOkuApp {
 
         Response response = given().spec(spec02).
                 when().
-                get("{/bookingid}");
+                get("/{bookingid}");
         response.
                 then().
                 assertThat().
@@ -41,7 +41,7 @@ public class GetRequest07 extends TestBaseHerOkuApp {
         JsonPath jsonPath = response.jsonPath();
 
         System.out.println(jsonPath.getString("firstname"));
-        Assert.assertEquals("Firstname istenilen gibi degil", "Sally");
+        Assert.assertEquals("istenildigidegil", "Susan", jsonPath.getString("firstname"));
     }
 
 }
