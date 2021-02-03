@@ -1,7 +1,9 @@
 package com.techproed;
 
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.Test;
+import org.testng.asserts.SoftAssert;
 import testbase.TestBaseDummy;
 
 import static io.restassured.RestAssured.given;
@@ -24,6 +26,23 @@ public class GetRequest08 extends TestBaseDummy {
                 spec(spec03).
                 when().
                 get("/{employees}");
+
+        response.prettyPrint();
+
+        JsonPath jsonPath =response.jsonPath();
+        System.out.println(jsonPath.getString("data.employee_name"));
+        System.out.println(jsonPath.getString("data.employee_salary"));
+        System.out.println(jsonPath.getString("data.employee_name[2]"));
+
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertEquals(jsonPath.getString("data.employee_name[2]"), "Ashton Cox");
+        System.out.println(jsonPath.getString("data.employee_name[0,1,2,3,4]"));
+        System.out.println(jsonPath.getString("data[0,1,2,3,4].employee_name"));
+        System.out.println(jsonPath.getString("data[-1].employee_name"));
+        System.out.println(jsonPath.getString("data.employee_name[-1]"));
+
+        softAssert.assertAll();
+
 
 
     }
