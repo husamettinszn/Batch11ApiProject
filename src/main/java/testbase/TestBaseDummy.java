@@ -5,6 +5,7 @@ import io.restassured.specification.RequestSpecification;
 import org.junit.Before;
 
 public class TestBaseDummy {
+
     protected RequestSpecification spec03;
 
     @Before
