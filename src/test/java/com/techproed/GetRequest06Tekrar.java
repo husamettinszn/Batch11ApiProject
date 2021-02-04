@@ -1,10 +1,12 @@
 package com.techproed;
 
 import io.restassured.response.Response;
+import org.hamcrest.Matchers.*;
 import org.junit.Test;
 import testbase.TestBaseJsonPlaceHolder;
 
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.CoreMatchers.equalTo;
 
 public class GetRequest06Tekrar extends TestBaseJsonPlaceHolder {
      /* 1)When I send a GET request to REST API URL
@@ -26,5 +28,18 @@ public class GetRequest06Tekrar extends TestBaseJsonPlaceHolder {
                 spec(spec01).
                 when().
                 get("/{name}/{id}");
+
+        response.prettyPrint();
+
+        response.
+                then().
+                assertThat().
+                statusCode(200).
+                header("Server","cloudflare").
+                contentType("application/json").
+                body("userId", equalTo(7),
+                        "id",equalTo(123),
+                        "title", equalTo("esse et quis iste est earum aut impedit"),
+                        "completed", equalTo(false));
     }
 }
