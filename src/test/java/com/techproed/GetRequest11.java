@@ -1,5 +1,5 @@
 package com.techproed;
-import TestBase.TestBaseJsonPlaceHolder;
+
 import TestData.JsonPlaceHolderTestData;
 import io.restassured.response.Response;
 import static org.hamcrest.Matchers.*;

@@ -6,14 +6,14 @@ import org.junit.Before;
 
 public class TestBaseJsonPlaceHolder {
 
-    protected  RequestSpecification spec01;  // bu bir interface dir
+    protected RequestSpecification spec01 ;
 
     @Before
-    public void setUp01(){
+    public void setUp(){
+       spec01 = new RequestSpecBuilder().setBaseUri("https://jsonplaceholder.typicode.com").
+               build();
 
-         spec01 = new RequestSpecBuilder().
-                 setBaseUri("https://jsonplaceholder.typicode.com").
-                 build();
+
         }
     }
 
