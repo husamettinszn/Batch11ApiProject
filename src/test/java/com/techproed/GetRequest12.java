@@ -3,9 +3,12 @@ package com.techproed;
 import TestData.DummyTestData;
 import io.restassured.response.Response;
 import org.hamcrest.Matchers;
+import org.junit.Assert;
 import org.junit.Test;
 import testbase.TestBaseDummy;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -46,7 +49,7 @@ public class GetRequest12 extends TestBaseDummy {
                 spec(spec03).
                 when().
                 get("/{employees}");
-        response.prettyPrint();
+        //response.prettyPrint();
 
         // 1. yol body ile
         response.
@@ -64,6 +67,17 @@ public class GetRequest12 extends TestBaseDummy {
                         "data[10].employee_age",Matchers.equalTo(((Map)expectedDataList.get(5).get("AllDetailsAboutEmployee")).get("employee_age")) ,
                         "data[10].profile_image",Matchers.equalTo(((Map)expectedDataList.get(5).get("AllDetailsAboutEmployee")).get("profile_image")));
 
+        //2.Yol DE_Serializization
+        Map<String,Object>  actualDataMap = response.as(HashMap.class);
+        System.out.println(actualDataMap);
+
+        Assert.assertEquals(expectedDataList.get(0).get("Status Code"), response.statusCode());
+        Assert.assertEquals(expectedDataList.get(1).get("SelectedEmployeeName"), ((Map)((List)actualDataMap.get("data")).get(4)).get("employee_name"));
+        Assert.assertEquals(expectedDataList.get(2).get("NumOfEmployees"), ((List) actualDataMap.get("data")).size());
+        int numOfEmployees = ((List)actualDataMap.get("data")).size();
+        Assert.assertEquals(expectedDataList.get(3).get("SelectedSalary"),((Map)((List)actualDataMap.get("data")).get(numOfEmployees-2)).get("employee_salary"));
+
+        List<String> ageList = new ArrayList<>();
 
 
     }
