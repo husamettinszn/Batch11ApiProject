@@ -63,4 +63,14 @@ public class DummyTestData {
 
 
     }
+    public Map<String, Integer> setUpData2(){
+        Map<String, Integer> expectedDataMap = new HashMap<>();
+        expectedDataMap.put("Status Code", 200);
+        expectedDataMap.put("EnYuksekMaas", 725000);
+        expectedDataMap.put("EnKucukYas", 19);
+        expectedDataMap.put("IkinciYuksekMaas", 675000);
+
+        return expectedDataMap;
+
+    }
 }
