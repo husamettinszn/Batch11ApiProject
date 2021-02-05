@@ -53,15 +53,13 @@ public class GetRequest10Tekrar extends TestBaseDummy {
         List<String> ageList = jsonPath.getList("data.findAll{Integer.valueOf(it.employee_age)<30}");
         System.out.println(ageList);
 
-        List<Integer> ageListInt = new ArrayList<>();
+        List<String>  ageListInt = new ArrayList<>();
+
         for (String w: ageList
              ) {
-            ageListInt.add(Integer.valueOf(w));
+            ageListInt.add(String.valueOf(w));
         }
         System.out.println(ageListInt);
-
-        Collections.sort(ageListInt);
-        softAssert.assertEquals(Integer.valueOf("23"), ageListInt.get(ageListInt.size()-1));
 
         softAssert.assertAll();
 
