@@ -4,10 +4,13 @@ import TestData.DummyTestData;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
+import org.json.JSONObject;
 import org.junit.Assert;
 import org.junit.Test;
+import org.testng.asserts.SoftAssert;
 import testbase.TestBaseDummy;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;
@@ -62,6 +65,41 @@ public class PostRequest01 extends TestBaseDummy {
         }
         Assert.assertEquals(reqBodyMap.get("profile_image"), jsonPath.get("data.profile_image"));
 
+        Map<String, String> expectedMessageMap= expectedObj.setUpMessageData();
+        System.out.println(expectedMessageMap);
+        Assert.assertEquals(expectedMessageMap.get("message"), jsonPath.getString("message"));
 
+        //2.Yol GSon --> DE-Serialization
+
+        Map<String ,Object> actualDataMap = response.as(HashMap.class);
+        System.out.println(actualDataMap);
+
+        Assert.assertEquals(reqBodyMap.get("name"), ((Map)actualDataMap.get("data")).get("name"));
+        Assert.assertEquals(reqBodyMap.get("salary"), ((Map)actualDataMap.get("data")).get("salary"));
+        Assert.assertEquals(reqBodyMap.get("age"), ((Map)actualDataMap.get("data")).get("age"));
+
+        // if (reqBodyMap.get("profile_image").equals("")){
+        //    reqBodyMap.put("profile_image", null);
+        // }
+
+        Assert.assertEquals(reqBodyMap.get("profile_image"), ((Map) actualDataMap.get("data")).get("profile_image"));
+        Assert.assertEquals(expectedMessageMap.get("message"), actualDataMap.get("message"));
+        Assert.assertEquals(expectedMessageMap.get("status"), actualDataMap.get("status"));
+
+        //3. Yol JSon Object
+
+        SoftAssert softAssert = new SoftAssert();
+
+        JSONObject expectedDataJsonObject = expectedObj.setUpPostReqBodyByUsingJSONObject();
+        System.out.println(expectedDataJsonObject);
+
+        softAssert.assertEquals(jsonPath.getString("data.name"), expectedDataJsonObject.getString("name"));
+        softAssert.assertEquals(jsonPath.getString("data.salary"), expectedDataJsonObject.getString("salary"));
+        softAssert.assertEquals(jsonPath.getString("data.age"), expectedDataJsonObject.getString("age"));
+
+        JSONObject msgJSONObject = expectedObj.setUpMessageDataByUsingJSONObject();
+
+        System.out.println(msgJSONObject);
+        softAssert
     }
 }

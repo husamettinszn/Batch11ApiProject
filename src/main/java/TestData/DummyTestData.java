@@ -1,4 +1,6 @@
 package TestData;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -62,5 +64,31 @@ public class DummyTestData {
         reqBodyMap.put("profile_image","");
 
         return reqBodyMap;
+    }
+    public Map<String, String> setUpMessageData(){
+
+        Map<String, String> massageMap = new HashMap<>();
+        massageMap.put("status","success");
+        massageMap.put("message","Successfully! Record has been added.");
+
+        return massageMap;
+    }
+    public JSONObject setUpPostReqBodyByUsingJSONObject() {
+
+        JSONObject reqBodyJSONObject = new JSONObject();
+        reqBodyJSONObject.put("name","Ahmet Aksoy");
+        reqBodyJSONObject.put("salary","1000");
+        reqBodyJSONObject.put("age","18");
+        reqBodyJSONObject.put("profile_image","");
+
+        return reqBodyJSONObject;
+
+    }
+    public JSONObject setUpMessageDataByUsingJSONObject() {
+        JSONObject messageJSONObject = new JSONObject();
+        messageJSONObject.put("status", "success");
+        messageJSONObject.put("message", "Successfully! Record has been added.");
+
+        return messageJSONObject;
     }
 }
