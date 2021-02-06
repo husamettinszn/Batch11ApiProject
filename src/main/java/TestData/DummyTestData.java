@@ -1,5 +1,4 @@
 package TestData;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -8,24 +7,7 @@ import java.util.Map;
 public class DummyTestData {
     public List<Map<String,Object>> expectedDataList = new ArrayList<>();
     public List<Map<String,Object>> setUpData(){
-        /*
-  When
-  I send get request to yje URL http://dummy.restapiexample.com/api/v1/employees
-  Then
-  Status Code 200
-  5. calisanin ismi "Airi Satou"
-  Calisan sayisi 24
-  Sondan ikinci calisanin maasi "106450"
-  40,23 ve 19 yaslarinda calisanlar olup olmadıgı
-  11. calisanin bilgileri {              "id": "11",
-							            "employee_name": "Jena Gaines",
-							            "employee_salary": "90560",
-							            "employee_age": "30",
-							            "profile_image": ""
-							             }
-							            seklinde mi
-							            Assert edelim.
- */
+
         HashMap<String,Object> expectedMap1 = new HashMap<>();
         HashMap<String,Object> expectedMap2 = new HashMap<>();
         HashMap<String,Object> expectedMap3 = new HashMap<>();
@@ -60,17 +42,25 @@ public class DummyTestData {
 
 
         return expectedDataList;
+    }
+    public  Map<String,Integer> setUpData2(){
+        Map<String,Integer> expectedDataMap = new HashMap<>();
+        expectedDataMap.put("Status code",200);
+        expectedDataMap.put("EnYuksekMaas",725000);
+        expectedDataMap.put("EnKucukYas",19);
+        expectedDataMap.put("IkinciYuksekMaas",675000);
 
+        return  expectedDataMap;
 
     }
-    public Map<String, Integer> setUpData2(){
-        Map<String, Integer> expectedDataMap = new HashMap<>();
-        expectedDataMap.put("Status Code", 200);
-        expectedDataMap.put("EnYuksekMaas", 725000);
-        expectedDataMap.put("EnKucukYas", 19);
-        expectedDataMap.put("IkinciYuksekMaas", 675000);
+    public Map<String, String> setUpData3(){
 
-        return expectedDataMap;
+        Map<String, String> reqBodyMap = new HashMap<String, String>();
+        reqBodyMap.put("name","Ahmet Aksoy");
+        reqBodyMap.put("salary","1000");
+        reqBodyMap.put("age","18");
+        reqBodyMap.put("profile_image","");
 
+        return reqBodyMap;
     }
 }
