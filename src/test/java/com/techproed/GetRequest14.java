@@ -25,7 +25,6 @@ public class GetRequest14 extends TestBaseDummy {
         Map<String, Integer> expectedDataMap = expectedObj.setUpData2();
         System.out.println(expectedDataMap);
 
-        Response response =
 
 
     }
