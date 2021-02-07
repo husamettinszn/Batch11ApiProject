@@ -1,5 +1,7 @@
 package TestData;
 
+import org.json.JSONObject;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,5 +22,19 @@ public class HerOkuAppTestData {
         bookoingDetailsMap.put("bookingdates", "Breakfast");
 
         return bookoingDetailsMap;
+    }
+    public JSONObject setUpDataJSONObject(){
+        JSONObject bookingDatesJSONObject = new JSONObject();
+        bookingDatesJSONObject.put("checkin","2020-09-09");
+        bookingDatesJSONObject.put("checkout","2020-09-21");
+
+        JSONObject bookingDetailsJSONObject = new JSONObject();
+        bookingDetailsJSONObject.put("firstname","Selim");
+        bookingDetailsJSONObject.put("lastname","Ak");
+        bookingDetailsJSONObject.put("totalprice",11111);
+        bookingDetailsJSONObject.put("depositpaid",true);
+        bookingDetailsJSONObject.put("bookingdates",bookingDatesJSONObject);
+
+        return  bookingDetailsJSONObject;
     }
 }

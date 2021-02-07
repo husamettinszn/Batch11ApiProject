@@ -56,6 +56,7 @@ public class PostRequest01 extends TestBaseDummy {
         response.prettyPrint();
 
         JsonPath jsonPath = response.jsonPath();
+
         Assert.assertEquals(reqBodyMap.get("name"), jsonPath.getString("data.name"));
         Assert.assertEquals(reqBodyMap.get("salary"), jsonPath.getString("data.salary"));
         Assert.assertEquals(reqBodyMap.get("age"), jsonPath.getString("data.age"));
@@ -99,7 +100,10 @@ public class PostRequest01 extends TestBaseDummy {
 
         JSONObject msgJSONObject = expectedObj.setUpMessageDataByUsingJSONObject();
 
-        System.out.println(msgJSONObject);
-        softAssert
+        JSONObject msjJSONObject = expectedObj.setUpMessageDataByUsingJSONObject();
+        System.out.println(msjJSONObject);
+        softAssert.assertEquals(jsonPath.getString("message"),msjJSONObject.getString("message"));
+        softAssert.assertEquals(jsonPath.getString("status"),msjJSONObject.getString("status"));
+        softAssert.assertAll();
     }
 }
