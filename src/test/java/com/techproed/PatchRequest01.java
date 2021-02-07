@@ -1,8 +1,11 @@
 package com.techproed;
 
 import TestData.JsonPlaceHolderTestData;
+import io.restassured.response.Response;
 import org.junit.Test;
 import testbase.TestBaseJsonPlaceHolder;
+
+import static io.restassured.RestAssured.given;
 
 public class PatchRequest01 extends TestBaseJsonPlaceHolder {
     /*
@@ -25,7 +28,7 @@ public class PatchRequest01 extends TestBaseJsonPlaceHolder {
     spec01.pathParams("todosPath", "todos",
             "id",198);
 
-        JsonPlaceHolderTestData
+        Response response = given().when().get("/{todos}/{id}");
     }
 
 }
