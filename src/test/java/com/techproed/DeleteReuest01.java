@@ -22,6 +22,6 @@ public class DeleteReuest01 extends TestBaseDummy {
                 "id", 2);
 
         
-        Response response =
+
     }
 }
