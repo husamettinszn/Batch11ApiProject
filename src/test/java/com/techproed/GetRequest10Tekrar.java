@@ -26,44 +26,47 @@ public class GetRequest10Tekrar extends TestBaseDummy {
 		   Assert that Charde Marshall is one of the employees whose salary is greater than 350,000
 	 */
     @Test
-    public void get01(){
-        spec03.pathParam("name", "employees");
+    public void get(){
+        spec03.pathParam("employeesPath","employees");
 
         Response response = given().
                 spec(spec03).
                 when().
-                get("/{name}");
-        response.prettyPrint();
+                get("/{employeesPath}");
+        //response.prettyPrint();
 
         response.
                 then().
                 assertThat().
                 statusCode(200);
+        SoftAssert softAssert = new SoftAssert();
 
-        //Groovy language
-
-        JsonPath jsonPath = response.jsonPath();
+        JsonPath jsonPath= response.jsonPath();
 
         List<String> idList = jsonPath.getList("data.findAll{Integer.valueOf(it.id)>10}.id");
         System.out.println(idList);
+        softAssert.assertEquals(idList.size(), 14);
 
-        SoftAssert softAssert = new SoftAssert();
-        softAssert.assertEquals(idList.size(),14);
-
-        List<String> ageList = jsonPath.getList("data.findAll{Integer.valueOf(it.employee_age)<30}");
+        List<String> ageList = jsonPath.getList("data.findAll{Integer.valueOf(it.employee_age)<30}.employee_age");
         System.out.println(ageList);
 
-        List<String>  ageListInt = new ArrayList<>();
-
+        List<Integer> ageListInt = new ArrayList<>();
         for (String w: ageList
              ) {
-            ageListInt.add(String.valueOf(w));
+            ageListInt.add(Integer.valueOf(w));
         }
-        System.out.println(ageListInt);
+        Collections.sort(ageListInt);
+        softAssert.assertTrue(ageListInt.get(ageListInt.size()-1).equals(23));
+        softAssert.assertEquals(ageListInt.get(ageListInt.size()-1), Integer.valueOf("23"));
+
+        List<String> name = jsonPath.getList("data.findAll{Integer.valueOf(it.employee_salary)>350000}.employee_name");
+        System.out.println(name);
+
+        softAssert.assertTrue(name.contains("Charde Marshall"));
+
+
 
         softAssert.assertAll();
-
-
-
     }
+
 }
