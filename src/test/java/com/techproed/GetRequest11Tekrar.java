@@ -29,6 +29,10 @@ public class GetRequest11Tekrar extends TestBaseJsonPlaceHolder {
                 when().
                 get("/{todosPath}/{id}");
         response.prettyPrint();
+
+        response.
+                then().
+                assertThat();
     }
 
 }
