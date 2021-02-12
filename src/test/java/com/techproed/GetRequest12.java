@@ -33,7 +33,7 @@ public class GetRequest12 extends TestBaseDummy {
                                             Assert edelim.
     ​
      */
-    @Test
+   /* @Test
     public void get01(){
         // 1. Url olusturmak
         spec03.pathParam("employees","employees");
@@ -51,20 +51,7 @@ public class GetRequest12 extends TestBaseDummy {
         //  response.prettyPrint();
 
         // 1. yol body ile
-      /*  response.
-                then().
-                assertThat().
-                statusCode((Integer)expectedDataList.get(0).get("Status Code")).
-                body("data[4].employee_name", Matchers.equalTo(expectedDataList.get(1).get("SelectedEmployeeName")),
-                       "data.id",Matchers.hasSize((Integer)expectedDataList.get(2).get("NumOfEmployees")),
-                                "data[-2].employee_salary",Matchers.equalTo(expectedDataList.get(3).get("SelectedSalary")),
-                                      "data.employee_age",Matchers.hasItems(((List)expectedDataList.get(4).get("MultipleAges")).get(0),
-                                                                             ((List)expectedDataList.get(4).get("MultipleAges")).get(1),
-                                                                              ((List)expectedDataList.get(4).get("MultipleAges")).get(2)),
-                                      "data[10].employee_name",Matchers.equalTo(((Map)expectedDataList.get(5).get("AllDetailsAboutEmployee")).get("employee_name")),
-                                      "data[10].employee_salary",Matchers.equalTo(((Map)expectedDataList.get(5).get("AllDetailsAboutEmployee")).get("employee_salary")),
-                                      "data[10].employee_age",Matchers.equalTo(((Map)expectedDataList.get(5).get("AllDetailsAboutEmployee")).get("employee_age")) ,
-                                      "data[10].profile_image",Matchers.equalTo(((Map)expectedDataList.get(5).get("AllDetailsAboutEmployee")).get("profile_image"))); */
+
 
         // 2. yol DE-Serialization
 
@@ -89,4 +76,6 @@ public class GetRequest12 extends TestBaseDummy {
         Assert.assertEquals(((Map)expectedDataList.get(5).get("AllDetailsAboutEmployee")).get("profile_image"),(((Map)((List) actualDataMap.get("data")).get(10)).get("profile_image")));
 
     }
+
+    */
 }
