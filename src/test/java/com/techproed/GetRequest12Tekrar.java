@@ -2,6 +2,7 @@ package com.techproed;
 
 import TestData.DummyTestData;
 import io.restassured.response.Response;
+import org.hamcrest.Matchers;
 import org.junit.Test;
 import testbase.TestBaseDummy;
 
@@ -34,17 +35,38 @@ public class GetRequest12Tekrar extends TestBaseDummy {
     public void get(){
 
         // URL
-        spec03.pathParam("employeesPath", "employees1");
+        spec03.pathParam("employeesPath", "employees");
 
         //Expected Data
         DummyTestData expectedObj = new DummyTestData();
         List< Map<String, Object>> expectedDataList= expectedObj.setUpData();
         System.out.println(expectedDataList);
 
+        //Actual Data
         Response response = given().
                 spec(spec03).
                 when().
-                get("/{employees1");
-        response.prettyPrint();
+                get("/{employeesPath}");
+        //response.prettyPrint();
+
+       response.
+                then().
+                assertThat().
+                statusCode((Integer)expectedDataList.get(0).get("Status Code")).
+                body("data[4].employee_name", Matchers.equalTo(expectedDataList.get(1).get("SelectedEmployeeName")),
+                "data.id", Matchers.hasSize((Integer)expectedDataList.get(2).get("NumOfEmployees")),
+                 "data[-2].employee_salary", Matchers.equalTo(expectedDataList.get(3).get("SelectedSalary")),
+                        "data.employee_age", Matchers.hasItems (
+                                ((List)expectedDataList.get(4).get("MulipleAges")).get(0),
+                                ((List) expectedDataList.get(4).get("MulipleAges")).get(1),
+                                ((List) expectedDataList.get(4).get("MulipleAges")).get(2)),
+                        "data[10].employee_name", Matchers.equalTo(((Map)expectedDataList.get(5).get("AllDetailsAboutEmployee")).get("employee_name")),
+                        "data[10].employee_salary", Matchers.equalTo(((Map)expectedDataList.get(5).get("AllDetailsAboutEmployee")).get("employee_salary")),
+                        "data[10].employee_age", Matchers.equalTo(((Map)expectedDataList.get(5).get("AllDetailsAboutEmployee")).get("employee_age")),
+                        "data[10].profile_image", Matchers.equalTo(((Map)expectedDataList.get(5).get("AllDetailsAboutEmployee")).get("profile_image"))
+                );
+
+
+
     }
 }
