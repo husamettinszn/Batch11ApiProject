@@ -68,5 +68,15 @@ public class DummyTestData {
 
         return expectedDataList;
     }
+    public Map<String, Integer> setUPData2(){
+        Map<String, Integer> expectedDataMap = new HashMap<>();
+        expectedDataMap.put("Status code", 200);
+        expectedDataMap.put("highest_salary", 72500);
+        expectedDataMap.put("minimum_age", 19);
+        expectedDataMap.put("second_highest_salary", 675000);
+
+       return expectedDataMap;
+    }
+
 
 }

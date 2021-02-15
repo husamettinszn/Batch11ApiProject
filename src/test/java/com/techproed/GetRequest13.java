@@ -28,7 +28,7 @@ public class GetRequest13 extends TestBaseHerOkuApp {
              }
         }
 */
-    @Test
+  /*  @Test
     public void get01(){
         //1. adım Url
         spec02.pathParam("bookingId",1);
@@ -60,4 +60,6 @@ public class GetRequest13 extends TestBaseHerOkuApp {
                 .get("checkout")));
 
     }
+
+   */
 }

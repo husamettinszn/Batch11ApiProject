@@ -47,7 +47,7 @@ public class PostRequest02 extends TestBaseHerOkuApp {
 											    }
 											 }
 	 */
-    @Test
+   /* @Test
     public void post01(){
         // 1. Url i olustur
 
@@ -103,5 +103,7 @@ public class PostRequest02 extends TestBaseHerOkuApp {
         softAssert.assertAll();
     }
 
+
+    */
 
 }
