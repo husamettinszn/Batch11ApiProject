@@ -78,6 +78,16 @@ public class DummyTestData {
 
        return expectedDataMap;
     }
+    public Map<String, String> setUpData3(){
+
+        Map<String, String> reqBodyMap = new HashMap<>();
+        reqBodyMap.put("name", "Ahmet Aksoy");
+        reqBodyMap.put("salary", "1000");
+        reqBodyMap.put("age", "18");
+        reqBodyMap.put("profile_image", "");
+
+        return reqBodyMap;
+    }
 
 
 }
