@@ -51,6 +51,7 @@ public class PostRequest01Tekrar extends TestBaseDummy {
                 post("/{createPath}");
 
         response.prettyPrint();
+        response.prettyPrint();
 
 
     }
