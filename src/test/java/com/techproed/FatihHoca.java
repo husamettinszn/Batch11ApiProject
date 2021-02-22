@@ -48,6 +48,7 @@ public class FatihHoca extends TestBase {
 		Assert.assertEquals("firstname is not matching", "Jim", jsonPath.getString("firstname"));
 
 
+		response.prettyPrint();
 
 
 
