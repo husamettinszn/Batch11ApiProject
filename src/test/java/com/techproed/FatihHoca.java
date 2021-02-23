@@ -49,6 +49,7 @@ public class FatihHoca extends TestBase {
 
 
 		response.prettyPrint();
+		System.out.println("artik");
 
 
 
