@@ -1,5 +1,6 @@
 package TestData;
 
+import io.restassured.path.json.JsonPath;
 import org.json.JSONObject;
 
 import java.util.HashMap;
@@ -23,6 +24,20 @@ public class HerOkuAppTestData {
         bookingDetailsMap.put("bookingdates", bookingDatesMap);
 
         return bookingDetailsMap;
+    }
+    public JSONObject setUpDataJSONObject(){
+        JSONObject bookingDatesJsonObject = new JSONObject();
+        bookingDatesJsonObject.put("checkin", "2020-09-09");
+        bookingDatesJsonObject.put("checkout", "2020-09-21");
+
+        JSONObject bookingDetailsJSONObject = new JSONObject();
+        bookingDetailsJSONObject.put("firstname","Selim");
+        bookingDetailsJSONObject.put("lastname", "Ak");
+        bookingDetailsJSONObject.put("totalprice", 1111);
+        bookingDetailsJSONObject.put("depositpaid", true);
+        bookingDetailsJSONObject.put("bookingdates", bookingDatesJsonObject);
+
+        return bookingDetailsJSONObject;
     }
 
 
