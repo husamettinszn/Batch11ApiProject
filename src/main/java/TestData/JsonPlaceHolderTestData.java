@@ -1,5 +1,7 @@
 package TestData;
 
+import org.json.JSONObject;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -18,6 +20,15 @@ public class JsonPlaceHolderTestData {
         expectedDataMap.put("Server", "cloudflare");
 
         return expectedDataMap;
+    }
+    public JSONObject setUpPostRequestByJSONObject(){
+
+        JSONObject requestBody = new JSONObject();
+        requestBody.put("userId", 55);
+        requestBody.put("title", "Tidy your room");
+        requestBody.put("completed", false);
+
+        return requestBody;
     }
 
 }
