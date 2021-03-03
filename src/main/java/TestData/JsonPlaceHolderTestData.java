@@ -30,6 +30,20 @@ public class JsonPlaceHolderTestData {
 
         return requestBody;
     }
+    public JSONObject setUpPutRequestByJSONObject(){
+
+        JSONObject requestBody = new JSONObject();
+        requestBody.put("userId", 21);
+        requestBody.put("title", "Wash the dishes");
+        requestBody.put("completed", false);
+
+        return requestBody;
+    }
+    public Map<String, Object> setUpPatchDataWithMap(){
+        Map<String, Object> patchReqBodyMap = new HashMap<>();
+        patchReqBodyMap.put("title", "I love API");
+        return patchReqBodyMap;
+    }
 
 }
 
