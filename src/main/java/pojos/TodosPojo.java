@@ -1,19 +1,13 @@
 package pojos;
 
 public class TodosPojo {
-
-    public int getUserId() {
-        return userId;
-    }
-
-    /*
-        {
-        "userId": 10,
-        "id": 198,
+   /*
+        "userId": 1,
+        "id": 1,
         "title": "Tidy your room",
         "completed": true
     }
-         */
+    */
     private int userId;
     private int id;
     private String title;
@@ -29,28 +23,32 @@ public class TodosPojo {
         this.completed = completed;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public boolean isCompleted() {
-        return completed;
+    public int getUserId() {
+        return userId;
     }
 
     public void setUserId(int userId) {
         this.userId = userId;
     }
 
+    public int getId() {
+        return id;
+    }
+
     public void setId(int id) {
         this.id = id;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public boolean isCompleted() {
+        return completed;
     }
 
     public void setCompleted(boolean completed) {
