@@ -12,7 +12,7 @@ import org.junit.Before;
         @Before
         public void setUp(){
             spec02= new RequestSpecBuilder().
-                    setBaseUri("https://restful-booker.herokuapp.com/booking").
+                    setBaseUri("https://restful-booker.herokuapp.com").
                     build();
 
         }
