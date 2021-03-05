@@ -3,7 +3,6 @@ package com.techproed;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.Test;
-import pojos.BookingDates;
 import pojos.BookingPojo;
 import testbase.TestBaseHerOkuApp;
 
@@ -42,17 +41,7 @@ public class PostRequestWithPojo02 extends TestBaseHerOkuApp {
     @Test
     public void postWithPojo(){
 
-        spec02.pathParam("bookingId","booking");
-        BookingDates bookingDates = new BookingDates("2020-09-09","2020-09-21" );
-        BookingPojo expectedBooking= new BookingPojo("Selim","Ak", 1111, true,bookingDates);
 
-        Response response= given().
-                contentType(ContentType.JSON).
-                spec(spec02).
-                body(expectedBooking).
-                when().
-                post("/{bookingId}");
-        response.prettyPrint();
 
     }
 
