@@ -15,7 +15,7 @@ import static io.restassured.RestAssured.given;
 
 public class GetRequestWithObjectMapper01 extends TestBaseJsonPlaceHolder {
 
-
+/*
     @Test
     public  void get01(){
         spec01.pathParams("todosPath", "todos",
@@ -24,7 +24,7 @@ public class GetRequestWithObjectMapper01 extends TestBaseJsonPlaceHolder {
         String expectedJson = "{\n" +
                 " \"userId\": 10,\n" +
                 "\"id\": 198,\n" +
-                "\"title\": \"quis eius est sint explicabo\",\n" +
+               "\"title\": \"quis eius est sint explicabo\",\n" +
                 " \"completed\": true\n" +
                 " }";
         Map<String ,Object> expectedMap = JSonUtil.convertJsonToJava(expectedJson);
@@ -46,4 +46,6 @@ public class GetRequestWithObjectMapper01 extends TestBaseJsonPlaceHolder {
 
 
     }
+
+ */
 }

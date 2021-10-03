@@ -1,6 +1,8 @@
 package Utilities;
 
 
+import io.restassured.mapper.ObjectMapperDeserializationContext;
+import io.restassured.mapper.ObjectMapperSerializationContext;
 import org.codehaus.jackson.map.ObjectMapper;
 
 import java.io.IOException;
@@ -15,19 +17,18 @@ public class JSonUtil {
     static {
         mapper = new ObjectMapper();
     }
-
     // Metodumuzu olusturucaz-- Json Data sını  Java Object sine donusturucek.
-
-    public static Map<String,Object> convertJsonToJava(String json){
-        Map<String,Object> javaResult = null;
+    public static Map< String, Object> convertJsonToJava(String json) {
+        Map<String, Object> javaResult = null;
 
         try {
             javaResult = mapper.readValue(json, HashMap.class);
         } catch (IOException e) {
-            System.err.println("Json Datasını Java'ya donusturemedi"+ e.getMessage());
+            System.err.println("Json Datasini Java'ya dönüstüremedi"+ e.getMessage());
         }
-        return  javaResult;
+        return javaResult;
     }
+
 
 }
 

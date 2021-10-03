@@ -60,8 +60,7 @@ public class GetRequestWithPojo extends TestBaseDummy {
         Assert.assertEquals(expectedDataPojo.getData().getProfile_image(),actualDataPojo.getData().getProfile_image());
         JsonPath jsonPath = response.jsonPath();
         Assert.assertEquals(expectedDataPojo.getStatus(), jsonPath.getString("status"));
-        Assert.assertEquals(expectedDataPojo.getData().getEmployee_age(), ((Integer) jsonPath.getInt("data.employee_age")));
-       Assert.assertEquals(expectedDataPojo.getData().getEmployee_salary(),((Integer) jsonPath.getInt("data.employee_salary")));
+//       Assert.assertEquals(expectedDataPojo.getData().getEmployee_salary(),((Integer) jsonPath.getInt("data.employee_salary")));
 
        //DE Serialization GSon ile yapilir
         Gson gson = new Gson();
